@@ -13,9 +13,12 @@ public class treeBehavior : MonoBehaviour
     public Sprite[] GrowStage;
     public Transform TreeCollection;
 
+    public bool empowered; 
+
     
     void Start()
     {
+        empowered = false;
         treeDying = false;
         treeGrowing = false;
         humansAttacking = 0;
@@ -29,6 +32,12 @@ public class treeBehavior : MonoBehaviour
         {
             if (!treeDying)
                 StartCoroutine(Falling());
+        }
+
+        if (empowered)
+        {
+            humansAttacking = 0;
+            hp = 10;
         }
 
         if (hp <= 0)

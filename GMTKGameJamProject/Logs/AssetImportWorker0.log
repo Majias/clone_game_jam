@@ -747,3 +747,43 @@ Received Import Request.
 Start importing Assets/Scripts/treeBehavior.cs using Guid(026d6698b9df90240a1345e884b81d8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0eb3653337dd55686d4425801fda7741') in 0.009549 seconds
   Import took 0.083460 seconds .
 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001279 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.30 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.737 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.32 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1789 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 85.9 MB.
+System memory in use after: 86.0 MB.
+
+Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 2316.
+Total: 2.470100 ms (FindLiveObjects: 0.366800 ms CreateObjectMapping: 0.137500 ms MarkObjects: 1.887800 ms  DeleteObjects: 0.076500 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 161.775419 seconds.
+  path: Assets/Prefabs/Preview.prefab
+  artifactKey: Guid(4d3459359bf5dfd4282209f0ff6949a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Preview.prefab using Guid(4d3459359bf5dfd4282209f0ff6949a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b69dee91c5ef471901317a8449903b92') in 0.367598 seconds
+  Import took 0.394945 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.361064 seconds.
+  path: Assets/Prefabs/TempTree.prefab
+  artifactKey: Guid(d32bfc4b9e48c84469a6074fd8df50e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/TempTree.prefab using Guid(d32bfc4b9e48c84469a6074fd8df50e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a33f3299aadd4d4b5c86e638c7487e9') in 0.009212 seconds
+  Import took 0.029228 seconds .
+
