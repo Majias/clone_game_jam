@@ -138,8 +138,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D myCollision)
     {
-
-        if (myCollision.gameObject.tag == "tree" || myCollision.gameObject.tag == "animal")
+        if ((myCollision.gameObject.tag == "tree" || myCollision.gameObject.tag == "animal") && (myCollision.GetType() == typeof(CircleCollider2D)))
         {
             collidingWith = myCollision.gameObject;
         }
@@ -147,7 +146,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D myCollision)
     {
-        if (myCollision.gameObject.tag == "tree" || myCollision.gameObject.tag == "animal")
+        if ((myCollision.gameObject.tag == "tree" || myCollision.gameObject.tag == "animal") && (myCollision.GetType() == typeof(CircleCollider2D)))
         {
             collidingWith = null;
         }
