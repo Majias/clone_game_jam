@@ -54,10 +54,9 @@ public class enemyBehavior : MonoBehaviour
 
                 
             }
-            if ((target.GetComponent<treeBehavior>().hp <= 3 && target.GetComponent<treeBehavior>().humansAttacking == 3)
-                || (target.GetComponent<treeBehavior>().hp <= 2 && target.GetComponent<treeBehavior>().humansAttacking == 2)
-                || (target.GetComponent<treeBehavior>().hp <= 1)
-                )
+            if ((target.GetComponent<treeBehavior>().hp <= 3 && target.GetComponent<treeBehavior>().humansAttacking == 3) 
+                || (target.GetComponent<treeBehavior>().hp <= 2 && target.GetComponent<treeBehavior>().humansAttacking == 2) 
+                || (target.GetComponent<treeBehavior>().hp <= 1) || (target.GetComponent<treeBehavior>().empowered))
             {
                 init();
             }
@@ -84,7 +83,8 @@ public class enemyBehavior : MonoBehaviour
             Vector3 directionToTarget = potentialTarget.transform.position - currentPosition;
             float dSqrToTarget = directionToTarget.sqrMagnitude;
             //&& Random.Range(1,11) > 1 
-            if ((dSqrToTarget < closestDistanceSqr && potentialTarget.GetComponent<treeBehavior>().humansAttacking < 3 && potentialTarget.GetComponent<treeBehavior>().hp > 1))
+            if ((dSqrToTarget < closestDistanceSqr && potentialTarget.GetComponent<treeBehavior>().humansAttacking < 3 
+                && potentialTarget.GetComponent<treeBehavior>().hp > 1) && !potentialTarget.GetComponent<treeBehavior>().empowered)
             {
                 closestDistanceSqr = dSqrToTarget;
                 bestTarget = potentialTarget.transform;
