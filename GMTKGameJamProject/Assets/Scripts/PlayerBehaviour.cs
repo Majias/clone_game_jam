@@ -18,6 +18,8 @@ public class PlayerBehaviour : MonoBehaviour
     private Color defaultColor = new Color(16, 159, 173, 255);
     private Color empoweringColor = new Color(255, 250, 26, 146);
 
+    public float distanceToTarget;
+
 
 
 
@@ -96,7 +98,7 @@ public class PlayerBehaviour : MonoBehaviour
             {
                 var _newTreeOffset = _treePlacement + new Vector3(0, 0, 1);
                 var _tree = Instantiate(TreePrefab, _newTreeOffset, Quaternion.identity);
-                _tree.parent = TreeCollection;
+                
                 isHoldingTree = false;
                 Destroy(TreePreview.gameObject);
             }
@@ -119,21 +121,24 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q) && !empowering)
         {
-            Debug.Log("Test");
             if (collidingWith != null)
             {
-                Debug.Log("Colliding with : " + collidingWith.gameObject.tag);
-                empowering = true;
-                charSprite.color = empoweringColor;
-                StartCoroutine(empoweringTimer());
+                distanceToTarget = Vector3.Distance(transform.position, collidingWith.transform.position);
+                if (distanceToTarget < 2f)
+                {
+                    Debug.Log("You're protected !");
+                    empowering = true;
+                    collidingWith.GetComponent<treeBehavior>().empowered = empowering;
+                    charSprite.color = empoweringColor;
+                    StartCoroutine(empoweringTimer());
+                }
             }
         }
     }
 
     void OnTriggerEnter2D(Collider2D myCollision)
     {
-
-        if (myCollision.gameObject.tag == "tree" || myCollision.gameObject.tag == "animal")
+        if ((myCollision.gameObject.tag == "tree" || myCollision.gameObject.tag == "animal") && (myCollision.GetType() == typeof(CircleCollider2D)))
         {
             collidingWith = myCollision.gameObject;
         }
@@ -141,7 +146,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D myCollision)
     {
-        if (myCollision.gameObject.tag == "tree" || myCollision.gameObject.tag == "animal")
+        if ((myCollision.gameObject.tag == "tree" || myCollision.gameObject.tag == "animal") && (myCollision.GetType() == typeof(CircleCollider2D)))
         {
             collidingWith = null;
         }
@@ -151,6 +156,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         yield return new WaitForSeconds(3); //empowers for 3 seconds
         empowering = false;
+        collidingWith.GetComponent<treeBehavior>().empowered = empowering;
         charSprite.color = defaultColor;
     }
 

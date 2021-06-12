@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: 366979988}
   m_Layer: 0
   m_Name: TreeCollection
-  m_TagString: Untagged
+  m_TagString: TreeCollection
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -373,6 +373,7 @@ MonoBehaviour:
   TreeCollection: {fileID: 366979987}
   TreePreviewPrefab: {fileID: 7889551846895985691, guid: 4d3459359bf5dfd4282209f0ff6949a9, type: 3}
   TreePrefab: {fileID: 7818907399987851685, guid: d32bfc4b9e48c84469a6074fd8df50e0, type: 3}
+  distanceToTarget: 0
 --- !u!212 &1726081577
 SpriteRenderer:
   m_ObjectHideFlags: 0
