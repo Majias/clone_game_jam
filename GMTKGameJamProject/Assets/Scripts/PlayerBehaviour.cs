@@ -96,7 +96,7 @@ public class PlayerBehaviour : MonoBehaviour
             {
                 var _newTreeOffset = _treePlacement + new Vector3(0, 0, 1);
                 var _tree = Instantiate(TreePrefab, _newTreeOffset, Quaternion.identity);
-                _tree.parent = TreeCollection;
+                
                 isHoldingTree = false;
                 Destroy(TreePreview.gameObject);
             }

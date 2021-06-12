@@ -9,9 +9,9 @@ public class treeBehavior : MonoBehaviour
     public int hp;
     public bool treeDying;
     public bool treeGrowing;
-    public int GrowSageeIndedx;
+    public int GrowSageIndedx;
     public Sprite[] GrowStage;
-    
+    public Transform TreeCollection;
 
     
     void Start()
@@ -20,7 +20,7 @@ public class treeBehavior : MonoBehaviour
         treeGrowing = false;
         humansAttacking = 0;
         hp = 10;
-        
+        TreeCollection = GameObject.FindWithTag("TreeCollection").GetComponent<Transform>();
     }
 
     private void Update()
@@ -40,19 +40,24 @@ public class treeBehavior : MonoBehaviour
 
     void GrowCycle()
     {
-        if(!treeGrowing && GrowSageeIndedx != 4)
+        if(!treeGrowing)
         {
-            StartCoroutine(Growing());
+            if (GrowSageIndedx<5)
+            {
+                StartCoroutine(Growing());
+            } 
+            else
+            {
+                transform.parent = TreeCollection;
+            }
         }
-        
-
     }
     IEnumerator Growing()
     {
         treeGrowing = true;
         yield return new WaitForSeconds(3);
-        GetComponent<SpriteRenderer>().sprite = GrowStage[GrowSageeIndedx];
-        GrowSageeIndedx++;
+        GetComponent<SpriteRenderer>().sprite = GrowStage[GrowSageIndedx];
+        GrowSageIndedx++;
         treeGrowing = false;
     }
 
